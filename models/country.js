@@ -1,10 +1,12 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var countrySchema = new mongoose.Schema ({
+var countrySchema = new Schema ({
   name: { type: String },
   population: { type: Number,  maxlength: 20 },
-  travel warnings: { type: String },
-  visa: { type: String, enum: [ 'Yes', 'No']}
+  travel_warnings: { type: String },
+  visa: { type: String, enum: [ 'Yes', 'No']},
+  vaccinations: { type: String }
 
 });
 

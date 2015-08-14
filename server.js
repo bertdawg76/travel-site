@@ -3,13 +3,15 @@ var cors = require('cors');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
+var countryCtrl = require('./controllers/countryCtrl');
+
 var app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
 
 
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
 
 
 app.post('/country', countryCtrl.create);
