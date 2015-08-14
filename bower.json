@@ -1,0 +1,19 @@
+{
+  "name": "travel-site",
+  "version": "0.0.0",
+  "homepage": "https://github.com/bertdawg76/travel-site",
+  "authors": [
+    "bertcoleman76@gmail.com <bertcoleman76@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
