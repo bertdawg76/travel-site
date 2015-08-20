@@ -1,0 +1,24 @@
+        
+    <div>
+        <input type="text" placeholder="name" ng-model="country.name"/> 
+        <input type="text" placeholder="population" ng-model="country.population"/>
+        <input type="text" placeholder="travel warning" ng-model="country.travel_warning"/>  
+        <input type="text" placeholder="visa" ng-model="country.visa"/>
+        <input type="text" placeholder="vaccinations" ng-model="country.vaccinations"/>
+
+
+     
+            <button ng-click='getCountry()'>Get Country</button>
+            <button ng-click='deleteCountry($index)'>Delete Country</button>
+            <button ng-click="addCountry(country)">Create Country</button> 
+        <ul>
+             <li ng-repeat="country in countries">{{country.name}}
+             {{country.population}}  {{country.travel_warning}}  {{country.visa}}  {{country.vaccinations}}</li>
+        </ul>
+            
+    
+  
+    </div>
+        
+            
+  

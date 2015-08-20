@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-//app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 
 app.post('/country', countryCtrl.create);
@@ -21,7 +21,7 @@ app.delete('/country/:id', countryCtrl.delete);
 
 
 var port = 7000;
-var mongoUri = 'mongodb://localhost:27017/travel-site';
+var mongoUri = 'mongodb://bert:adminpassword@ds033163.mongolab.com:33163/travel-site';
 
 mongoose.set('debug', true);
 mongoose.connect(mongoUri);

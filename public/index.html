@@ -1,29 +1,58 @@
 <!doctype html>
-<html>
+<html ng-app="TravelSite">
 	<head>
 		<title>Travel-site</title>
 	
-		<link rel="stylesheet" href="public/styles/styles.css">
+		<link rel="stylesheet" href="styles/styles.css">
 	</head>
 
 	<body>
 
 
+		<header ng-include="'templates/nav.html'"></header>
+		<div ui-view></div>
 
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
+		<!-- <div ng-controller="CtrlCountry">
+	        <input type="text" placeholder="name" ng-model="country.name"/> 
+	        <input type="text" placeholder="population" ng-model="country.population"/>
+	        <input type="text" placeholder="travel warning" ng-model="country.travel_warning"/> 
+	        <input type="text" placeholder="visa" ng-model="country.visa"/>
+	        <input type="text" placeholder="vaccinations" ng-model="country.vaccinations"/>
+
+	     
+	         
+	        <button ng-click="addCountry(country)">Create Country</button>
+	        <button ng-click='getCountry()'>Get Country</button>
+	        <button ng-click="deleteCountry($index)">Delete Country</button>
+	  
+	     
+	        <div ng-repeat="place in countries">
+	            {{place.name}}
+	        </div>
+	        
+	    </div>
+ -->
+   
+
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="js/app.js"></script>
+		
+		<!-- SERVICES -->
+		<script src="js/services/countryService.js"></script>
+		
+		<!-- CONTROLLERS -->
+		<script src="js/controllers/MainCtrl.js"></script>
+		<script src="js/controllers/CtrlCountry.js"></script>
+
+
+		<script src=""></script>
+		<script src=""></script>
+		<script src=""></script>
+		<script src=""></script>
+		<script src=""></script>
+		<script src=""></script>
+		<script src=""></script>
 
 	</body>
 </html>

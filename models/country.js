@@ -5,7 +5,7 @@ var countrySchema = new Schema ({
   name: { type: String },
   population: { type: Number,  maxlength: 20 },
   travel_warnings: { type: String },
-  visa: { type: String, enum: [ 'Yes', 'No']},
+  visa: { type: String, enum: [ 'Yes', 'No', 'yes', 'no' ] },
   vaccinations: { type: String }
 
 });
