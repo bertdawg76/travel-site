@@ -1,0 +1,43 @@
+<md-dialog aria-label="List dialog">
+    <md-dialog-content>
+    <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span>Add New Travel Log</span>
+                </h2>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+
+    <md-input-container>
+        <label>Enter Country Name</label>
+        <input ng-model="list.title">
+    </md-input-container>
+    <md-input-container>
+        <label>Enter Your Name</label>
+        <input ng-model="list.name">
+    </md-input-container>
+
+    <md-autocomplete md-selected-item="selectedCategory" md-search-text="categorySearchText" md-items="item in getMatches(categorySearchText)" md-item-text="item.catName" placeholder="Select a Category">
+        <md-item-template>
+            <span md-highlight-text="searchText">{{item.catName}}</span>
+        </md-item-template>
+        <md-not-found>
+            No matches found.
+        </md-not-found>
+    </md-autocomplete>
+
+    <md-input-container>
+        <label>Enter your travel log description here...</label>
+        <textarea name="log" ng-model="list.list" required md-maxlength="300"></textarea>
+    </md-input-container>
+    </md-dialog-content>
+    <div class="md-actions">
+        <md-button ng-click="closeDialog()" class="">
+            Cancel
+        </md-button>
+        <md-button ng-click="saveLog()" class="md-raised md-primary">
+            Save
+        </md-button>
+    </div>
+</md-dialog>

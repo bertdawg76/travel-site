@@ -1,0 +1,60 @@
+<h1>Travel Warnings</h1>
+		
+           
+
+		<md-input-container>
+  <label>Search Travel Warnings</label>
+  <input ng-model="search">
+</md-input-container>
+
+
+<md-container>
+  <md-button ng-click="getTravel()" class="md-raised md-primary">Search</md-button>
+  <span flex></span>
+  
+</md-container>
+
+<md-content>
+  
+    
+   <md-divider ng-repeat-start="r in warnings | filter: {title: search}"></md-divider>
+    <!--<md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="2:2"
+        md-gutter="12px" md-gutter-gt-sm="8px"--><div ng-repeat-end>
+      <div layout="row" layout-margin layout-fill layout-padding class="gray">
+        <div flex><h2>{{r.title | uppercase}}</h2></div>
+        
+     </div>
+     <div layout="column" layout-margin layout-fill layout-padding class="gray">
+        <div flex><h3>Date Issued: {{r.pubDate}}</h3></div>
+        
+      </div>
+      <div layout="row" layout-margin layout-fill layout-padding class="gray">
+        <div flex><h3>Description:</h3>  {{r.description}}</div>
+      </div>
+     
+      </div>
+
+      
+      
+    </div>
+
+</md-content>
+  	
+
+
+
+    <!--  <form ng-submit="getTravel()">
+    
+            <input type="text" ng-model="search"> 
+ 
+            <input type="submit" value="Search">
+        </form>
+
+
+            <div>-->
+              <!-- <input type="text" ng-model="search.title"> 
+               <button ng-click="getTravel()">Get Travel Warnings</button>-->
+
+           <!--_->
+     

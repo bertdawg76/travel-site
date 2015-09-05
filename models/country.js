@@ -2,11 +2,18 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var countrySchema = new Schema ({
-  name: { type: String },
-  population: { type: Number,  maxlength: 20 },
-  travel_warnings: { type: String },
-  visa: { type: String, enum: [ 'Yes', 'No', 'yes', 'no' ] },
-  vaccinations: { type: String }
+  title: { type: String },
+  population: { type: String,  maxlength: 20 },
+  capitol: { type: String },
+  area: { type: String },
+  language: { type: String },
+  religion: { type: String },
+  currency: { type: String },
+  gdp: { type: String },
+  description: { type: String },
+  dish: { type: String },
+  flag: { type: String },
+  map: { type: String }
 
 });
 

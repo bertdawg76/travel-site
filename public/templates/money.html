@@ -1,0 +1,30 @@
+<h1>Currency Exchange Rates Converter</h1>
+
+<md-content>
+  </div>
+  <form class="form-inline">
+
+
+    <div class="row">
+      <label>From</label>
+      <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText"
+                       md-items="item in getMatches(searchText)" md-item-text="item.display">
+        <span md-highlight-text="searchText">{{item.display}}</span>
+      </md-autocomplete>
+      <label><h4>Enter Amount</h4></label>
+      <input ng-model="fromVal" class="span2">
+      </md-input-container>
+    </div>
+    <div class="row">
+      <label class="span1">To</label>
+      <select ng-options="value as getCurrencyLabel(code, value) for (code, value) in currencyValues"
+              ng-model="toCurrency" class="span3">
+        <md-input-container></md-input-container>
+      </select>
+
+      <input value="{{ calcCurrency() || 0 | number : 2 }}" readonly class="span2">
+
+    </div>
+
+  </form>
+</md-content>

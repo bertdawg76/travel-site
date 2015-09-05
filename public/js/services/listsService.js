@@ -1,10 +1,11 @@
-angular.module('TravelSite').service('countryService', ['$http', '$q', function ($http, $q) {
+angular.module('TravelSite').service('listsService', ['$http', '$q', function ($http, $q, $modal) {
 
-  this.getCountry = function () {
+  this.getList = function (term) {
     var dfd = $q.defer();
     $http({
       method: 'GET',
-      url: '/country'
+      url: '/lists',
+      params: {searchTerm: term}
     }).then(function (response) {
       console.log(response.data);
       dfd.resolve(response.data);
@@ -13,12 +14,11 @@ angular.module('TravelSite').service('countryService', ['$http', '$q', function 
     });
     return dfd.promise;
   };
-
-  this.addCountry = function (body) {
+  this.addList = function (body) {
     var dfd = $q.defer();
     $http({
       method: 'POST',
-      url: '/country',
+      url: '/lists',
       data: body
     }).then(function (response) {
       console.log(response.data);
@@ -31,23 +31,3 @@ angular.module('TravelSite').service('countryService', ['$http', '$q', function 
   };
 
 }]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    
-    
-    

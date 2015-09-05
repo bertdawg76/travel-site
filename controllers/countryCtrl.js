@@ -15,6 +15,9 @@ module.exports = {
 
   read: function(req, res) {
     Country.find(req.query)
+    
+    
+    
     .exec(function(err, result) {
       if (err){
         console.log('Error GETTING country', JSON.stringify(err.errors));

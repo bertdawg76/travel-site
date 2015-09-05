@@ -1,7 +1,27 @@
-<div>
-<ul>
-  <li><a ui-sref="home">Home</a></li>
-  <li><a ui-sref="country">Country</a></li>
- 
-</ul>
+
+<div ng-controller="NavCtrl" class="" layout="column" layout-fill>
+<!-- HEADER -->
+	<md-content>
+	    <md-toolbar>
+	        <div class="md-toolbar-tools">
+	            <h2>
+	                <span>Travel Site</span>
+	            </h2>
+	            <span flex></span>
+	             <md-button class="md-icon-button" aria-label="Settings">
+	             <md-tooltip>Login</md-tooltip>
+          <a href="#/login"><ng-md-icon icon="facebook"></ng-md-icon>
+        </md-button></a>
+	        </div>
+	    </md-toolbar>
+  	</md-content>
+
+
+	<md-content class="md-padding">
+
+		<md-tabs md-dynamic-height md-border-bottom>
+			<md-tab ng-repeat="tab in tabs" label="{{tab.label}}" ng-click="goToTab(tab)"></md-tab>
+		</md-tabs>
+ 	</md-content>
+
 </div>

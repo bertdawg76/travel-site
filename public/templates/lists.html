@@ -1,0 +1,35 @@
+<h1>Travel Log </h1>
+
+<md-input-container>
+  <label>Search Travel Logs</label>
+  <input ng-model="search">
+</md-input-container>
+<md-container>
+  <md-button ng-click="getList()" class="md-raised md-primary">Search</md-button>
+  <span flex></span>
+  <md-button class="md-raised md-warn" ng-click="showAddListModal()">New Travel Log</md-button>
+</md-container>
+
+<md-content>
+  <md-list>
+    <md-subheader class="md-no-sticky">Search Results: {{places.length || 0}}</md-subheader>
+    <md-divider ng-repeat-start="r in places"></md-divider>
+    <md-list-item class="md-3-line" ng-repeat-end>
+      <div class="md-list-item-text">
+        <h3>{{r.category | uppercase}} - {{ r.title }}</h3>
+        <h4>{{ r.name }}</h4>
+        <p>{{ r.list }}</p>
+      </div>
+    </md-list-item>
+    
+  </md-list>
+</md-content>  
+
+<!-- <div>
+  <ul ng-repeat="place in places | filter: {title: search}">
+    <li>Country:  {{place.title}}</li>
+    <li>User: {{place.name}}</li> 
+    <li>Category: {{place.category}} </li> 
+    <li>List: {{place.list}}</li>
+  </ul>
+</div> -->
