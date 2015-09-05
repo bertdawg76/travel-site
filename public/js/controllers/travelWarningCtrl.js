@@ -7,7 +7,7 @@ angular.module('TravelSite').controller('travelWarningCtrl', function ($scope, t
   };
 
 
-  TravelService.get()
+  TravelService.getRestrictions()
 
       .then(function(data){
         console.log('did work', data);

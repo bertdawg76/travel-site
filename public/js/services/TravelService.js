@@ -1,7 +1,7 @@
 angular.module('TravelSite')
     .factory('TravelService', function ($http) {
       return {
-        get: function () {
+        getRestrictions: function () {
           return $http.get('http://travel.state.gov/_res/rss/TWs.xml')
               .then(function (data, status) {
                 console.log("Request succeeded", data);
