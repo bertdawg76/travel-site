@@ -19,7 +19,7 @@ angular.module('TravelSite')
       function combineRateInfo(names, rates) {
         var data = [];
         for (var key in names) {
-          data.push({name: names[key], rate: rates[key]})
+          data.push({name: names[key], rate: rates[key], abbrev: key});
         }
         var deferred = $q.defer();
         deferred.resolve(data);

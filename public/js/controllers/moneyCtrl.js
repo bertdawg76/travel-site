@@ -1,45 +1,46 @@
-angular.module('TravelSite').controller('moneyCtrl', function ($scope, RateInfoService, numberFilter, $q) {
+angular.module('TravelSite').controller('moneyCtrl', function ($scope, RateInfoService, numberFilter, $q, $filter) {
 
-  var namesPromise = RateInfoService.getRateInfo('currencies');
-  var ratesPromise = RateInfoService.getRateInfo('latest');
+  //Scope Vars
+  var rateData = [];
+  $scope.newRate = 0;
 
-  // Use the $q.all method to run code only when both promises have been resolved
-  $q.all([namesPromise, ratesPromise]).then(function (responses) {
-    RateInfoService.combineRateInfo(responses[0], responses[1].rates)
-        .then(function (rateData) {
-          $scope.rateData = rateData;
-        })
-  });
+  //API
+  $scope.getCurrencyLabel = getCurrencyLabel;
+  $scope.calcCurrency = calcCurrency;
+  $scope.getMatches = getMatches;
+  $scope.calcNewRate = calcNewRate;
 
-  $scope.getCurrencyLabel = function (code, value) {
+  init();
+
+  function init(){
+    var namesPromise = RateInfoService.getRateInfo('currencies');
+    var ratesPromise = RateInfoService.getRateInfo('latest');
+
+    // Use the $q.all method to run code only when both promises have been resolved
+    $q.all([namesPromise, ratesPromise]).then(function (responses) {
+      RateInfoService.combineRateInfo(responses[0], responses[1].rates)
+          .then(function (res) {
+            rateData = res;
+          });
+    });
+  }
+
+
+  function getCurrencyLabel(code, value) {
     return $scope.currencyNames[code] + " (" + numberFilter(value, 2) + " / USD)";
-  };
+  }
 
-  $scope.calcCurrency = function () {
+  function calcCurrency() {
     return $scope.fromVal / $scope.fromCurrency * $scope.toCurrency;
-  };
+  }
+
+  function getMatches(text){
+    return $filter('filter')(rateData, text);
+  }
+
+  function calcNewRate(rate1, rate2){
+    if(rate1 == undefined || rate1.length == 0 || rate2 == undefined || rate2.length == 0 || $scope.amount == undefined || $scope.amount == 0) return;
+
+    $scope.newRate = ($filter('number')( ($scope.amount * (rate2.rate / rate1.rate)), 2)) + ' '+ rate2.abbrev;
+  }
 });
-
-
-/*$scope.getMoney = function(){
- moneyService.getMoney().then(function(dataFromService){
- $scope.currencyValues = dataFromService;
-
- });
- }
-
- $scope.getValue = function(){
- moneyService.getValue().then(function(dataFromService){
- $scope.currencyNames = dataFromService;
- });
- }
-
- $scope.getCurrencyLabel = function(code, value) {
- return $scope.currencyNames[code] + " (" + numberFilter(value, 2) + " / USD)";
- };
-
- $scope.calcCurrency = function() {
- return $scope.fromVal / $scope.fromCurrency * $scope.toCurrency;
- };
-
- });*/

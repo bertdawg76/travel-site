@@ -5,26 +5,43 @@
   <form class="form-inline">
 
 
-    <div class="row">
-      <label>From</label>
-      <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText"
-                       md-items="item in getMatches(searchText)" md-item-text="item.display">
-        <span md-highlight-text="searchText">{{item.display}}</span>
-      </md-autocomplete>
-      <label><h4>Enter Amount</h4></label>
-      <input ng-model="fromVal" class="span2">
+    <div style="padding-bottom: 20px;">
+      <md-input-container>
+        <label>Enter Amount</label>
+        <input type="number" ng-model="amount" class="span2" ng-change="calcNewRate(selectedRate1, selectedRate2)">
       </md-input-container>
     </div>
-    <div class="row">
-      <label class="span1">To</label>
-      <select ng-options="value as getCurrencyLabel(code, value) for (code, value) in currencyValues"
-              ng-model="toCurrency" class="span3">
-        <md-input-container></md-input-container>
-      </select>
 
-      <input value="{{ calcCurrency() || 0 | number : 2 }}" readonly class="span2">
-
+    <div style="padding-bottom: 20px;">
+      <label>From</label>
+      <md-autocomplete
+          md-selected-item="selectedRate1"
+          md-search-text="searchText1"
+          md-items="item in getMatches(searchText1)"
+          md-item-text="(item.name + ' - ' + item.rate)"
+          md-selected-item-change="calcNewRate(selectedRate1, selectedRate2)">
+        <span md-highlight-text="searchText">{{item.name}} - {{item.rate}}</span>
+      </md-autocomplete>
     </div>
+
+    <div style="padding-bottom: 20px;">
+      <label class="span1">To</label>
+      <md-autocomplete
+          md-selected-item="selectedRate2"
+          md-search-text="searchText2"
+          md-items="item in getMatches(searchText2)"
+          md-item-text="(item.name + ' - ' + item.rate)"
+          md-selected-item-change="calcNewRate(selectedRate1, selectedRate2)">
+        <span md-highlight-text="searchText">{{item.name}} - {{item.rate}}</span>
+      </md-autocomplete>
+    </div>
+
+    <md-input-container>
+      <label>New Rate</label>
+      <input ng-model="newRate" readonly class="span2">
+    </md-input-container>
+
+
 
   </form>
 </md-content>
