@@ -14,7 +14,6 @@ angular.module('TravelSite')
       };
     });
 
-
 //var AppController = function ($scope, DataSource) {
 //
 //  SOURCE_FILE = "guitars.xml";
