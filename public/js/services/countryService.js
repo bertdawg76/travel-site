@@ -1,4 +1,4 @@
-angular.module('TravelSite').service('countryService', ['$http', '$q', function ($http, $q) {
+angular.module('TravelSite').service('countryService', function ($http, $q) {
 
   this.getCountry = function () {
     var dfd = $q.defer();
@@ -6,7 +6,6 @@ angular.module('TravelSite').service('countryService', ['$http', '$q', function 
       method: 'GET',
       url: '/country'
     }).then(function (response) {
-      console.log(response.data);
       dfd.resolve(response.data);
     }, function (err) {
       console.log('Error: ' + err);
@@ -30,7 +29,7 @@ angular.module('TravelSite').service('countryService', ['$http', '$q', function 
 
   };
 
-}]);
+});
 
 
 

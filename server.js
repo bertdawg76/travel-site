@@ -11,6 +11,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 //var localStrategy = require('passport-local').Strategy;
 var app = express();
 var countryCtrl = require('./controllers/countryCtrl');
+var travelRestrictionsCtrl = require('./controllers/travelRestrictionsCtrl');
 
 var CtrlLists = require('./controllers/CtrlLists');
 
@@ -84,6 +85,8 @@ app.delete('/lists/:id', CtrlLists.delete);
 
 app.get('/travelWarning', warningCtrl.read);
 app.post('/travelWarning', warningCtrl.create);
+
+app.get('/travel-restrictions', travelRestrictionsCtrl.getRestrictions);
 
 //require('./config/routes.js')(app, passport);
 
