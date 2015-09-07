@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var listSchema = new Schema ({
 	title: { type: String },
+	
 	name: { type: String, maxlength: 100 },
 	category: { type: String },
 	list: { type: String, maxlength: 400 }

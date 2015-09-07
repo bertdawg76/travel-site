@@ -1,14 +1,17 @@
 <h1>Home</h1>
-<form>
-<div class="form-group">
-              <input type="text" class="form-control" ng-model="place" placeholder="country" >
-              <button class="btn btn-primary" ng-click="doLots()"> Submit </button>
+<div class='md-padding' layout="row" flex>
+        <div layout="row" flex>
+            <div layout="column" ng-repeat="photoColumn in data.photos3p" flex>
+                <md-card class="card" data-ng-repeat="photo in photoColumn">
+                    <img ng-src="{{photo.path}}">
+                </md-card>
             </div>
-           <ul>
-	<li ng-repeat="place in places">
-		{{place}}</li>
-</ul>
+        </div>
+      </div>
 
-</form>
 
+
+
+
+ 
 <div ui-view></div>

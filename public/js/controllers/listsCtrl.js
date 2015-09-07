@@ -52,6 +52,13 @@ angular.module('TravelSite').controller('listsCtrl', function ($scope, $location
         {catName: 'Museums'},
         {catName: 'Heritage Sites'},
         {catName: 'Shopping'},
+        {catName: 'Snorkeling'},
+        {catName: 'National Parks'},
+        {catName: 'Historic Sites'},
+        {catName: 'Food'},
+        {catName: 'Guides'},
+        {catName: 'Kid Friendly'},
+        {catName: 'Cant Miss'}
       ];
 
       $scope.getMatches = function (text) {

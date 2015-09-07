@@ -1,6 +1,12 @@
-angular.module('TravelSite', ['ui.router', 'ngAnimate', 'ngAria', 'ngMaterial', 'ngMdIcons']);
+angular.module('TravelSite', ['ui.router', 'ngAnimate', 'ngAria', 'ngMaterial', 'ngMdIcons', 'ngSanitize']);
 
-angular.module('TravelSite').config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
+angular.module('TravelSite').config(['$urlRouterProvider', '$stateProvider', '$mdThemingProvider', function ($urlRouterProvider, $stateProvider, $mdThemingProvider) {
+
+  $mdThemingProvider.theme('default')
+            .primaryPalette('green')
+            .accentPalette('red', {
+              'default': 'A400'
+            });
 
   $urlRouterProvider.otherwise('/');
   $stateProvider
@@ -40,4 +46,8 @@ angular.module('TravelSite').config(['$urlRouterProvider', '$stateProvider', fun
         templateUrl: 'templates/login.html',
         controller: 'loginCtrl'
       })
+
+
+  
+    
 }]);

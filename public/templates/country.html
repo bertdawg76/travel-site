@@ -1,6 +1,7 @@
-<div>
-
-  <div>
+<header>
+  <h1>Countries of the World</h1>
+  <p><h3>Enter a Country name to Learn a little about that Country</h3></p></header>
+  
     <!--<input type="text" placeholder="country" ng-model="country.title"/>-->
     <!--<input type="text" placeholder="population" ng-model="country.population"/>-->
     <!--<input type="text" placeholder="capitol" ng-model="country.capitol"/>-->
@@ -21,10 +22,13 @@
         md-search-text="searchCountryText"
         md-items="item in getMatches(searchCountryText)"
         md-item-text="item.title"
-        md-floating-label="Select A Country"
+        md-floating-label="Enter in the Country you want to learn about"
         md-selected-item-change="getCountry()">
       <span md-highlight-text="searchCountryText">{{item.title}}</span>
     </md-autocomplete>
+    
+
+
 
     <md-content ng-show="selectedCountry!=undefined">
 

@@ -13,12 +13,13 @@
         <label>Enter Country Name</label>
         <input ng-model="list.title">
     </md-input-container>
+    
     <md-input-container>
         <label>Enter Your Name</label>
         <input ng-model="list.name">
     </md-input-container>
 
-    <md-autocomplete md-selected-item="selectedCategory" md-search-text="categorySearchText" md-items="item in getMatches(categorySearchText)" md-item-text="item.catName" placeholder="Select a Category">
+    <md-autocomplete md-selected-item="selectedCategory" md-search-text="categorySearchText" md-items="item in getMatches(categorySearchText)" md-item-text="item.catName" placeholder="Enter Activity and select from menu">
         <md-item-template>
             <span md-highlight-text="searchText">{{item.catName}}</span>
         </md-item-template>

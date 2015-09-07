@@ -4,7 +4,7 @@ angular.module('TravelSite').service('travelWarningService', function ($http, $q
 
     $http({
       method: 'GET',
-      url: '/travelWarning'
+      url: '/travel-restrictions'
     }).success(function (response) {
       console.log('SUCCESS ON SERVICE!!! ', response);
       dfd.resolve(response);
