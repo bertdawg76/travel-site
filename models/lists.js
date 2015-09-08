@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var listSchema = new Schema ({
-	title: { type: String },
+	countryCode: { type: String, maxlength: 20 },
 	
 	name: { type: String, maxlength: 100 },
 	category: { type: String },

@@ -19,12 +19,12 @@ function getRestrictions(req, res){
   var query = req.query;
 
   if(restrictionCache && cacheDT.getTime() > (new Date().getTime() - (1000*60*5))){
-    res.json(restrictionCache);
+    res.json(filterRestrictionCache(req.query));
   } else {
     getRestrictionXML().then(function(xml){
       restrictionCache = JSON.parse(parser.toJson(xml)).rss.channel.item;
       cacheDT = new Date();
-      res.json(restrictionCache);
+      res.json(filterRestrictionCache(req.query));
     });
   }
 }
@@ -43,4 +43,15 @@ function getRestrictionXML() {
   }).end();
 
   return d.promise
+}
+
+function filterRestrictionCache(query) {
+  if(query != undefined && query.countryCode != undefined) {
+    return restrictionCache.filter(function(r) {
+      return r["dc:identifier"] == query.countryCode;
+    })
+  }
+  else{
+    return restrictionCache;
+  }
 }

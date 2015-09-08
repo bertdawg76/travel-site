@@ -1,5 +1,5 @@
 <header><h1>Travel Log and Reviews</h1>
-  <p><h3>Enter a search term for travel reviews and logs below, or create your own travel review or log by clicking on the "New Travel Log button"</h3></p></header>
+  <p><h3>Enter a search term for travel reviews or create your own travel review by clicking on the "New Travel Log button"</h3></p></header>
 
 <md-input-container>
   <label>Enter Country or Activity</label>
@@ -17,7 +17,7 @@
     <md-divider ng-repeat-start="r in places"></md-divider>
     <md-list-item class="md-3-line" ng-repeat-end>
       <div class="md-list-item-text">
-        <h3>{{r.category | uppercase}} - {{ r.title }}</h3>
+        <h3>{{r.category | uppercase}} - {{ r.countryCode }}</h3>
         <h4>{{ r.name }}</h4>
         <p>{{ r.list }}</p>
       </div>

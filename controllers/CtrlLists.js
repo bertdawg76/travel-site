@@ -15,10 +15,18 @@ module.exports = {
 
   read: function(req, res) {
     console.log(req.query);
-    var re = new RegExp(req.query.searchTerm, 'i');
-    List.find()
-    .or([{ 'title': { $regex: re }}, { 'name': { $regex: re }}, { 'category': { $regex: re }}, { 'list': { $regex: re }}])
-    .exec(function(err, result) {
+    var mongoRequest = List.find();
+
+    if(req.query && req.query.searchTerm){
+      var search = new RegExp(req.query.searchTerm, 'i');  
+      mongoRequest.or([{ 'countryCode': { $regex: search }}, { 'name': { $regex: search }}, { 'category': { $regex: search }}, { 'list': { $regex: search }}])
+    }
+
+    if(req.query && req.query.countryCode){
+      mongoRequest.or([{ 'countryCode': req.query.countryCode}])
+    }
+    
+    mongoRequest.exec(function(err, result) {
       if (err){
         console.log('Error GETTING List', JSON.stringify(err.errors));
         return res.status(500).send(err);

@@ -1,13 +1,29 @@
-<h1>Home</h1>
-<div class='md-padding' layout="row" flex>
-        <div layout="row" flex>
-            <div layout="column" ng-repeat="photoColumn in data.photos3p" flex>
-                <md-card class="card" data-ng-repeat="photo in photoColumn">
-                    <img ng-src="{{photo.path}}">
-                </md-card>
-            </div>
-        </div>
-      </div>
+<h1>Welcome to Travel-Site</h1>
+<h3>Find Information about Countries, Search for current travel warnings, read users travel reviews or log your own review and find current currency rates and conversions with the currency calculator.
+<body>
+
+    <div higgidy-carousel='images' timeout="10000">
+      <ul higgidy-carousel-images class="car">
+        <li ng-repeat="image in images">
+          <label>{{image.text}}</label>
+          <a class="two" href="{{image.link}}">
+            <img ng-src="{{image.src}}" alt="{{img.alt}}" />
+          </a>
+        </li>
+      </ul>
+
+      <nav class="links">
+        <ul>
+          <li ng-repeat="image in images">
+            <label>{{image.text}}</label>
+            <a href="" ng-click="show($index)" ng-class="{selected: carousel.current == $index}">
+              {{$index}}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </body>
 
 
 

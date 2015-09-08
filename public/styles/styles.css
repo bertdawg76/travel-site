@@ -100,11 +100,6 @@
     opacity : 0.2;
  }
 
- .two {
-  background-color: red;
-  height: 150px;
-  width:  150px;
- }
-
- .carddemoBasicUsage md-card {
-  min-height: 150px; }
+.car {
+  height: 600px;
+}

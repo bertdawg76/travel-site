@@ -1,6 +1,11 @@
-angular.module('TravelSite').controller('CtrlCountry', function ($scope, countryService, $filter) {
+angular.module('TravelSite').controller('CtrlCountry', function ($scope, countryService, $filter, $stateParams) {
 
-  //API
+
+ console.log("stateParams", $stateParams);
+
+  //Do Lots Of THings with $stateParams.countryCode
+ //put $stateParams back in top
+  // //API
   $scope.addCountry = addCountry;
   $scope.getCountry = getCountry;
   $scope.getMatches = getMatches;

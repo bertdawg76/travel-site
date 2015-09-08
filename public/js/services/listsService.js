@@ -2,11 +2,16 @@ angular.module('TravelSite').service('listsService', ['$http', '$q', function ($
 
   this.getList = function (term) {
     var dfd = $q.defer();
-    $http({
+    var options = {
       method: 'GET',
-      url: '/lists',
-      params: {searchTerm: term}
-    }).then(function (response) {
+      url: '/lists'
+    };
+
+    if(term != undefined){
+      options.params = {searchTerm: term};
+    }
+
+    $http(options).then(function (response) {
       console.log(response.data);
       dfd.resolve(response.data);
     }, function (err) {

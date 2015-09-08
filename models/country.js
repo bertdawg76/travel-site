@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var countrySchema = new Schema ({
+  tag: { type: String},
   title: { type: String },
   population: { type: String,  maxlength: 20 },
   capitol: { type: String },

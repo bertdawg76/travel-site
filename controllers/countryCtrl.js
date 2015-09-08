@@ -14,10 +14,13 @@ module.exports = {
   },
 
   read: function(req, res) {
-    Country.find(req.query)
-    
-    
-    
+    var query = {};
+
+    if(req.query && req.query.countryCode){
+      query.tag = req.query.countryCode.toUpperCase();
+    }
+
+    Country.find(query)
     .exec(function(err, result) {
       if (err){
         console.log('Error GETTING country', JSON.stringify(err.errors));

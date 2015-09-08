@@ -16,6 +16,35 @@
 	    </md-toolbar>
   	</md-content>
 
+  	<md-content>
+  	  <md-whiteframe class="md-whiteframe-z5" layout layout-align="center center">
+    <span>
+    	<h3>Search for Country</h3>
+    	<md-autocomplete
+          md-selected-item="selectedItem"
+          md-search-text="searchText"
+          md-selected-item-change="selectedItemChange(item)"
+          md-items="item in getMatches(searchText)"
+          md-item-text="item.title"
+          
+          md-floating-label="Get all country info">
+        <md-item-template>
+          <span md-highlight-text="searchText">{{item.title}}</span>
+        </md-item-template>
+        <md-not-found>
+          No matches found for "{{searchText}}".
+        </md-not-found>
+      </md-autocomplete>
+ <!--<div>md-highlight-flags="^i"  md-min-length="0"</div>-->
+
+
+
+    </span>
+  </md-whiteframe>
+
+
+    </md-content>
+
 
 	<md-content class="md-padding">
 

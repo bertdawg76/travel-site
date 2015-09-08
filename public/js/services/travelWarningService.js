@@ -1,11 +1,16 @@
 angular.module('TravelSite').service('travelWarningService', function ($http, $q) {
-  this.getTravel = function () {
+  this.getTravel = function (countryCode) {
     var dfd = $q.defer();
-
-    $http({
+    var options = {
       method: 'GET',
       url: '/travel-restrictions'
-    }).success(function (response) {
+    }
+    if(countryCode != undefined){
+      options.params = {
+        countryCode: countryCode
+      }
+    }
+    $http(options).success(function (response) {
       console.log('SUCCESS ON SERVICE!!! ', response);
       dfd.resolve(response);
     }).error(function (err) {

@@ -1,11 +1,19 @@
 angular.module('TravelSite').service('countryService', function ($http, $q) {
 
-  this.getCountry = function () {
+  this.getCountry = function (code) {
     var dfd = $q.defer();
-    $http({
+    var options = {
       method: 'GET',
       url: '/country'
-    }).then(function (response) {
+    };
+
+    if(code != undefined){
+      options.params = {
+        countryCode: code
+      };
+    }
+
+    $http(options).then(function (response) {
       dfd.resolve(response.data);
     }, function (err) {
       console.log('Error: ' + err);
